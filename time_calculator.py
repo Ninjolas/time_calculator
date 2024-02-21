@@ -75,14 +75,14 @@ def add_time(time,add,week = None):
         counter = 0
 
         while hour >= 12:
-            if days_count == 7:
-                days_count = 0
             if time_zone[0] == "PM":
                 days_count += 1
                 counter+=1
                 time_zone[0] = "AM"
             elif time_zone[0] == "AM":
                 time_zone[0] = 'PM'
+            if days_count == 7:
+                days_count = 0
             if hour == 12:
                 break
             hour -= 12
@@ -109,8 +109,3 @@ def add_time(time,add,week = None):
             return string_final
 
     return get_new_time(week)
-
-
-
-
-print(add_time("11:43 AM", "00:20"))
